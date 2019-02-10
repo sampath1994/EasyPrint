@@ -23,7 +23,7 @@ public class Main extends Application {
 			
 			
 			root = FXMLLoader.load(getClass()
-			        .getResource("MainWindow.fxml"));
+			        .getResource("/MainWindow.fxml"));
 		
 
         primaryStage.setTitle("My Application");

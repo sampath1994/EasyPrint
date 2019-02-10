@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="435.0" prefWidth="519.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.samsoft.MyController">
+<AnchorPane prefHeight="435.0" prefWidth="519.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.samsoft.controller.MyController">
    <children>
       <Button fx:id="myButton" layoutX="183.0" layoutY="192.0" mnemonicParsing="false" onAction="#showDateTime" text="Show Date Time" />
       <TextField fx:id="myTextField" layoutX="57.0" layoutY="262.0" prefHeight="39.0" prefWidth="405.0" />

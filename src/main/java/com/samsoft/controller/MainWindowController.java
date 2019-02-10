@@ -1,4 +1,4 @@
-package com.samsoft;
+package com.samsoft.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,7 +26,7 @@ public class MainWindowController implements Initializable {
 		AnchorPane pane = null;
 		try {
 			pane = FXMLLoader.load(getClass()
-			        .getResource("MyScene.fxml"));
+			        .getResource("/MyScene.fxml"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
