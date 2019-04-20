@@ -7,8 +7,27 @@ public class PrintJob {
 	private int totalPages;
 	private int pagesPrinted;
 	private boolean opened;
+	private String statusStr;
+    private int statusInt;
 	
 	PrintJob(){	
+	}
+
+
+	public String getStatusStr() {
+		return statusStr;
+	}
+
+	public void setStatusStr(String statusStr) {
+		this.statusStr = statusStr;
+	}
+
+	public int getStatusInt() {
+		return statusInt;
+	}
+
+	public void setStatusInt(int statusInt) {
+		this.statusInt = statusInt;
 	}
 
 	public String getDocumentName() {

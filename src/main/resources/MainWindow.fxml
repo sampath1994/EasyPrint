@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="1235.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.samsoft.controller.MainWindowController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="1127.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.samsoft.controller.MainWindowController">
    <children>
       <MenuBar>
         <menus>
@@ -42,14 +42,16 @@
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="0.0" prefWidth="0.0" />
                     </columnConstraints>
                     <rowConstraints>
+                        <RowConstraints maxHeight="250.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="250.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="339.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="383.0" minHeight="10.0" prefHeight="74.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#currentPrint" prefHeight="54.0" prefWidth="266.0" text="Current Printing" />
-                        <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="266.0" text="Settings" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="267.0" text="Button" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#stopService" prefHeight="54.0" prefWidth="266.0" text="Stop service" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="266.0" text="Settings" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="267.0" text="About" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#initService" prefHeight="54.0" prefWidth="266.0" text="Start Service" />
                      </children>
                   </GridPane>
                </children>

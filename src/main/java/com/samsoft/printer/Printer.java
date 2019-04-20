@@ -1,4 +1,4 @@
-package com.samsoft.printer;
+package com.samsoft.printer;	
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,9 +49,13 @@ public class Printer {
 			pj.setJobOwnerName(job.pUserName);
 			pj.setPagesPrinted(job.PagesPrinted);
 			pj.setTotalPages(job.TotalPages);
+
+			pj.setStatusStr(job.pStatus);
+			
+			pj.setStatusInt(job.Status);
 			
 			printJobs.add(pj);
-
+            
 		}
 		return printJobs;
 	}
