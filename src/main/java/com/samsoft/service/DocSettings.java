@@ -2,6 +2,7 @@ package com.samsoft.service;
 
 public class DocSettings {
 
+	private int id;
 	private String owner;
 	private String time;
 	private String fileLink;
@@ -12,6 +13,13 @@ public class DocSettings {
 	private String printerType;
 	
 	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getTime() {
 		return time;
 	}

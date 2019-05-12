@@ -37,9 +37,7 @@ public class ExePrint {
 	   -6 = Document couldn't find from print pool
 	   
 	 */
-	public static int print(String dirPath,String owner,String printerName,String orientation,Boolean singleSided,Integer copyCount) {
-		//Find document name in specified directory
-		String realDocName = null;
+	public static int print(String dirPath,String owner,String docID,String printerName,String orientation,Boolean singleSided,Integer copyCount) {
 		
 		PrintService printService[] = PrintServiceLookup.lookupPrintServices(null, null);
 		PrintService selectedPrintService = null;
@@ -52,7 +50,7 @@ public class ExePrint {
 		PDDocument document=null;
 		
 		try {
-			document = PDDocument.load(new File(dirPath+"\\"+realDocName)); //change separator 
+			document = PDDocument.load(new File(dirPath));
 		} catch (InvalidPasswordException e) {
 			e.printStackTrace();
 			return -3;
@@ -71,7 +69,7 @@ public class ExePrint {
 
 
         	PrintRequestAttributeSet attributeSet = new HashPrintRequestAttributeSet();
-        	JobName jobName = new JobName(owner+"_"+realDocName, null);
+        	JobName jobName = new JobName(owner+"_"+docID, null);
         	attributeSet.add(jobName);
 
         	
@@ -100,7 +98,7 @@ public class ExePrint {
         Printer pr = new Printer();
         List<PrintJob> pj = pr.getJobsof(printerName);
         for(PrintJob p : pj) {
-        	if(p.getDocumentName().equals(owner+"_"+realDocName)) {
+        	if(p.getDocumentName().equals(owner+"_"+docID)) {
         		if(p.getStatusInt()==0) {
         			//print paused or printer not connected
         			return -1;

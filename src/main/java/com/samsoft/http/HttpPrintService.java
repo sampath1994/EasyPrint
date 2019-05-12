@@ -17,16 +17,16 @@ public class HttpPrintService {
 
 	private EasyPrintApi printApi;
 	
-	HttpPrintService(){
+	public HttpPrintService(){
         Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api.github.com/").addConverterFactory(GsonConverterFactory.create()).build();
         printApi = retrofit.create(EasyPrintApi.class); 
 	}
 	
-	List<DocSettings> getDocSettings(String username) throws IOException{
+	public List<DocSettings> getDocSettings(String username) throws IOException{
 		return printApi.pollServer(username).execute().body();
 	}
 	
-	void downloadFile(String downloadLink, String fileName) throws IOException {
+	public String downloadFile(String downloadLink, String fileName) throws Exception {   //changed from IOException to Exception
 		
 		File tempDir = new File(System.getProperty("user.home")+File.separator+".easyPrint");
 		if(!tempDir.exists()) {
@@ -35,9 +35,11 @@ public class HttpPrintService {
 		
 		ResponseBody resBody = printApi.downloadDoc(downloadLink).execute().body();
 		InputStream inputStream = resBody.byteStream();
-		File targetFile = new File(System.getProperty("user.home")+File.separator+".easyPrint"+File.separator+fileName+".pdf");
+		String targetPath = System.getProperty("user.home")+File.separator+".easyPrint"+File.separator+fileName+".pdf";
+		File targetFile = new File(targetPath);
 		java.nio.file.Files.copy(inputStream,targetFile.toPath(),StandardCopyOption.REPLACE_EXISTING);
 		inputStream.close();
+		return targetPath;
 	}
 	
 }

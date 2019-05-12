@@ -39,7 +39,7 @@ public class MainWindowController implements Initializable {
 	}
 	
 	public void initService() {
-		PrintingService.initiatePrinting(null);
+		PrintingService.initiatePrinting();
 		System.out.println("service started!!");
 	}
 	
