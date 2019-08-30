@@ -16,7 +16,7 @@ public class PrintingService {
 	private static boolean started = false;
 	private static Thread t = null;
 	private static volatile boolean stopCalled = false;
-
+	private static volatile boolean pollFlag = true;
 	public static void initiatePrinting() {
 
 		stopCalled = false;
@@ -25,14 +25,25 @@ public class PrintingService {
 
 			t = new Thread(()->
 			{	
+				boolean testFlg = true;
 				HttpPrintService httpService = new HttpPrintService();
-				boolean pollFlag = true;
+				pollFlag = true;
 				int failedPollCount = 0;
+				PrinterSelector printersltr = new PrinterSelector(); //saved printers are loaded here
 				while(pollFlag) {
 					//Get DocList relevant for current poll
 					List<DocSettings> documents = null;
 					try {
-						documents = httpService.getDocSettings("username");// username should be extracted from property file
+						//documents = httpService.getDocSettings("username");// username should be extracted from property file
+						
+						/*****************************************************************/
+						if(testFlg) {
+						MockDocSettingGenerator mds = new MockDocSettingGenerator();
+						documents = mds.createMockDocks();
+						testFlg = false;
+						}
+						/********************************************************************/
+						
 						failedPollCount = 0;
 					} catch (IOException e1) {
 						// Poll failed
@@ -76,7 +87,6 @@ public class PrintingService {
 							}
 							//Now we have the File and path, let's start printing current doc
 
-							PrinterSelector printersltr = new PrinterSelector();
 
 							List<String> possiblePrinterNames = printersltr.selectPrinter(doc.getColored(), doc.getPrinterType());
 
@@ -97,6 +107,7 @@ public class PrintingService {
 					//sleep poll for 30 seconds 
 					try {
 						Thread.sleep(30000);
+						System.out.println("System in the poll loop....");
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -113,6 +124,7 @@ public class PrintingService {
 
 	public static void terminatePrinting() {
 		stopCalled = true;
+		pollFlag = false;
 	}
 
 	private static synchronized void setStarted(boolean var) {

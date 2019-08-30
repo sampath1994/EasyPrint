@@ -9,15 +9,19 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+import com.samsoft.persistence.PrinterManager;
+
 // This is used choose relevant printer according to color,Laser or Inkjet  
 public class PrinterSelector {
 
-	List<PhysicalPrinter> pp;
+	List<PhysicalPrinter> pp = null;
+	PrinterManager pm = null;
 	
 	//Initialize physicalPrinters from properties file
 	
 	public PrinterSelector(){
-		
+		pm = new PrinterManager();
+		pp = pm.getPrinters();
 	}
 	
 	public List<String> selectPrinter(Boolean colored, String type) {

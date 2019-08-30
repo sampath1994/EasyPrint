@@ -14,7 +14,7 @@ public class Printer {
 	private List<PrintJob> printJobs;
 
 
-	Printer(){
+	public Printer(){
 		allPrinters = new ArrayList<>();
 		Winspool.PRINTER_INFO_4[] printers = WinspoolUtil.getPrinterInfo4();
 		for (Winspool.PRINTER_INFO_4 printer : printers) {  

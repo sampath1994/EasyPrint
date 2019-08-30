@@ -6,14 +6,28 @@ public class DocSettings {
 	private String owner;
 	private String time;
 	private String fileLink;
-	private Boolean colored;
-	private Integer copyCount;
-	private Boolean singleSided;
+	private boolean colored;
+	private int copyCount;
+	private boolean singleSided;
 	private String orientation;
 	private String printerType;
 	
 	
 	
+	
+	public DocSettings(int id, String owner, String time, String fileLink, boolean colored, int copyCount,
+			boolean singleSided, String orientation, String printerType) {
+		super();
+		this.id = id;
+		this.owner = owner;
+		this.time = time;
+		this.fileLink = fileLink;
+		this.colored = colored;
+		this.copyCount = copyCount;
+		this.singleSided = singleSided;
+		this.orientation = orientation;
+		this.printerType = printerType;
+	}
 	public int getId() {
 		return id;
 	}
@@ -38,22 +52,22 @@ public class DocSettings {
 	public void setFileLink(String fileLink) {
 		this.fileLink = fileLink;
 	}
-	public Boolean getColored() {
+	public boolean getColored() {
 		return colored;
 	}
-	public void setColored(Boolean colored) {
+	public void setColored(boolean colored) {
 		this.colored = colored;
 	}
-	public Integer getCopyCount() {
+	public int getCopyCount() {
 		return copyCount;
 	}
-	public void setCopyCount(Integer copyCount) {
+	public void setCopyCount(int copyCount) {
 		this.copyCount = copyCount;
 	}
-	public Boolean getSingleSided() {
+	public boolean getSingleSided() {
 		return singleSided;
 	}
-	public void setSingleSided(Boolean singleSided) {
+	public void setSingleSided(boolean singleSided) {
 		this.singleSided = singleSided;
 	}
 	public String getOrientation() {

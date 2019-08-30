@@ -26,7 +26,7 @@ public class Main extends Application {
 			        .getResource("/MainWindow.fxml"));
 		
 
-        primaryStage.setTitle("My Application");
+        primaryStage.setTitle("Easyprint");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 			

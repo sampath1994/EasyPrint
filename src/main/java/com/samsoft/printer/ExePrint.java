@@ -81,7 +81,7 @@ public class ExePrint {
         	}else {
         	    attributeSet.add(Sides.DUPLEX);	
         	}
-        	if(orientation.equalsIgnoreCase("landscape")) {
+        	if(orientation.equalsIgnoreCase(PrintAttribute.landscape.toString())) {
         	    attributeSet.add(OrientationRequested.LANDSCAPE);
         	}else {
         		attributeSet.add(OrientationRequested.PORTRAIT);
